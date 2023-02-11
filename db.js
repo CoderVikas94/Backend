@@ -1,5 +1,9 @@
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const mongoURI = "mongodb://127.0.0.1:27017/notevote?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1"
+
+dotenv.config({ path :'./config.env'});
+
+const mongoURI = process.env.MONGO_URL;
 
 const connectToMongo = ()=>{
     mongoose.connect(mongoURI,()=>{
